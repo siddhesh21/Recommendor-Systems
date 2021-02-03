@@ -3,8 +3,6 @@
   position: relative;
   color: #fff;
   object-fit: contain;
-  display: flex;
-  flex-direction: column;
 }
 .banner-contents {
   margin-left: 30px;
@@ -33,6 +31,7 @@
     #111
   );
   width: 100%;
+  margin-top: 120px;
 }
 .bannerButton {
   cursor: pointer;
