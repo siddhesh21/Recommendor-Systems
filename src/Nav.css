@@ -1,0 +1,30 @@
+.nav {
+  position: fixed;
+  top: 0;
+  padding: 10px;
+  width: 100%;
+  height: 40px;
+  z-index: 90;
+  transition-timing-function: ease;
+  transition: all 0.3s;
+}
+.navContents {
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.navLogo {
+  width: 100px;
+  object-fit: contain;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.navAvatar {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+.navBlack {
+  background-color: #000;
+}
