@@ -3,6 +3,8 @@
   position: relative;
   color: #fff;
   object-fit: contain;
+  display: flex;
+  flex-direction: column;
 }
 .banner-contents {
   margin-left: 30px;
@@ -13,8 +15,6 @@
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
-}
-.banner-buttons {
 }
 .bannerDescription {
   width: 45rem;
@@ -32,6 +32,7 @@
     rgba(37, 37, 37, 0.61),
     #111
   );
+  width: 100%;
 }
 .bannerButton {
   cursor: pointer;
@@ -40,13 +41,13 @@
   outline: none;
   font-weight: 700;
   border-radius: 0.2vw;
-  padding: 5rem 2rem;
+  padding: 0.5rem 2rem;
   margin-right: 1rem;
   background-color: rgba(51, 51, 51, 0.5);
   height: 40px;
+  transition: all 0.5s ease;
 }
-.bannerButton :hover {
+.bannerButton:hover {
   color: #000;
   background-color: #fff;
-  transition: all 0.2s ease;
 }
