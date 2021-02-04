@@ -13,8 +13,36 @@
 .profileScreenInfo {
   display: flex;
 }
-.profileScreenInfo > img {
+.profileImageContainer {
+  width: 100px;
   height: 100px;
+  position: relative;
+}
+.profileImageContainer > img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+.imageOverlay > .MuiSvgIcon-root {
+  color: #fff !important;
+  font-size: 30px;
+}
+.imageOverlay:hover {
+  opacity: 1;
 }
 .profileScreenBody > h1 {
   font-size: 60px;
@@ -50,4 +78,28 @@
 }
 .profileScreenPlans {
   margin-top: 20px;
+}
+.profileImageUrlInput {
+  height: 30px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  width: 90%;
+}
+.profileImageForm {
+  width: 100%;
+}
+.profileImageForm > button {
+  height: 30px;
+  width: 10%;
+  background-color: #e50914;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.hiddenProfileUrlForm {
+  display: none;
 }
