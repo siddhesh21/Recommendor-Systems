@@ -17,7 +17,7 @@ const LoginScreen = () => {
                 {signIn ? (
                     <SignUpScreen />
                 ) : (
-                    <SignUpScreen>
+                    <>
                     <h1>Undfjdshfdshfihdgibdiofghidufhbisdubgfuisfdhguifdbghuih </h1>
                     <h2>sddksfbd dsfkljhdnf dhfkjsdfhn</h2>
                     <h3>dfkhsdfhdsiohidhfnn idfniodsfi</h3>
@@ -27,7 +27,7 @@ const LoginScreen = () => {
                             <button onClick={() => setSignIn(true)} className="loginScreenGetStarted">Get Started</button>
                         </form>
                     </div>
-                </SignUpScreen>
+                </>
                 )}
             </div>
         </div>
