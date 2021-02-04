@@ -30,19 +30,18 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-      {!user ? (
-        <LoginScreen />
-      ) : (
-        <Switch>
-          <Route path="/profile">
-            <ProfileScreen />
-          </Route>
-          <Route path="/" exact>
-            <HomeScreen />
-          </Route>
-          
-        </Switch>
-      )}
+        {!user ? (
+          <LoginScreen />
+        ) : (
+          <Switch>
+            <Route path="/profile">
+              <ProfileScreen />
+            </Route>
+            <Route path="/" exact>
+              <HomeScreen />
+            </Route>
+          </Switch>
+        )}
       </BrowserRouter>
       
     </div>
