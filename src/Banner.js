@@ -18,7 +18,6 @@ const Banner = () => {
             return request;
         }
         fetchData();
-        console.log(movie);
     }, []);
 
     
