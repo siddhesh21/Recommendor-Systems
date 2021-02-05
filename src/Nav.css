@@ -64,3 +64,18 @@
   color: #fff;
   cursor: pointer;
 }
+.browseButton {
+  display: none;
+}
+@media (max-width: 830px) {
+  .navLinks {
+    display: none;
+  }
+  .responsiveLinks {
+    width: 55%;
+    position: relative;
+  }
+  .browseButton {
+    display: flex;
+  }
+}

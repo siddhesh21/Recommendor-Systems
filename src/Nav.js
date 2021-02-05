@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import "./Nav.css";
 
 const Nav = () => {
@@ -34,6 +35,12 @@ const Nav = () => {
                     <a href="#">New & Popular</a>
                     <a href="#">My List</a>
                     <a href="#">Watch Again</a>
+                </div>
+                <div className="responsiveLinks">
+                    <div className="browseButton">
+                        <p>Browse</p>
+                        <ArrowDropDownIcon />
+                    </div>
                 </div>
                 <div className="navIconContainer">
                     <SearchIcon />
