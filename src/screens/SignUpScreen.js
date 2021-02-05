@@ -37,9 +37,6 @@ const SignUpScreen = ({email}) => {
                 <button onClick={signIn} type="submit">Sign In</button>
             </form>
             <h4><span className="signUpGray">New to Netflix? </span><span onClick={register} className="signUpLink">Sign up now.</span></h4>
-            <div className="moreSignUpScreen">
-                
-            </div>
         </div>
     )
 }
