@@ -1,18 +1,18 @@
 .row {
   color: #fff;
   margin-left: 20px;
+  margin-top: 20px;
 }
 .rowPosters {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 30px;
 }
 .rowPoster {
-  max-height: 200px;
+  height: 200px;
   object-fit: contain;
   margin-right: 20px;
-  width: 100%;
+  width: 300px;
   transition: transform 0.35s;
   cursor: pointer;
 }
@@ -27,9 +27,13 @@
   z-index: 10;
 }
 .rowPosterLarge {
-  max-height: 500px;
+  height: 100%;
   transition: transform 0.45s;
   cursor: pointer;
+  width: 300px;
+  min-height: 100%;
+  object-fit: cover;
+  min-width: 100%;
 }
 .rowPosterLarge:hover {
   transform: scale(1.3);
@@ -39,4 +43,25 @@
   .rowPosters::-webkit-scrollbar {
     display: none;
   }
+}
+.movieContainer {
+  height: 200px;
+  width: 300px;
+  margin: 50px 15px;
+  position: relative;
+}
+.posterContainer {
+  height: 500px;
+  width: 300px;
+  display: block;
+  margin: 60px 15px;
+}
+.movieImageOverlay {
+  top: 0;
+  left: 0;
+  position: absolute;
+  background: black;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
 }

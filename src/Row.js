@@ -51,7 +51,12 @@ const Row = ({title, fetchUrl, isLargeRow = false }) => {
             <div className="rowPosters">
                 {movies.map((movie) => (
                     ((isLargeRow && movie.poster_path) || (!isLargeRow && movie.backdrop_path)) && (
-                        <img onClick={() => trailerHan(movie)} className={`rowPoster ${isLargeRow && "rowPosterLarge"}`} key={movie.id} src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} alt={movie.name}/>
+                        <div className={`${isLargeRow ? "posterContainer" : "movieContainer" }`}>
+                            <img onClick={() => trailerHan(movie)} className={`rowPoster ${isLargeRow && "rowPosterLarge"}`} key={movie.id} src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} alt={movie.name}/>
+                            {!isLargeRow && (
+                                <div className="movieImageOverlay"></div>
+                            )}
+                        </div>
                     )
                 ))}
             </div>
