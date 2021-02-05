@@ -17,7 +17,7 @@ const LoginScreen = () => {
             </div>
             <div className="loginScreenBody">
                 {signIn ? (
-                    <SignUpScreen email={email} />
+                    <SignUpScreen setEmail={setEmail} email={email} />
                 ) : (
                     <>
                         <h1>Unlimited number of movies, series and more.</h1>
