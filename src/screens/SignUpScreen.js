@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { auth } from '../firebase';
 import "./SignUpScreen.css";
 
-const SignUpScreen = () => {
+const SignUpScreen = ({email}) => {
 
     const emailRef = useRef(null);
     const passwordRef = useRef(null);
@@ -31,7 +31,7 @@ const SignUpScreen = () => {
         <div className="signUpScreen">
             <form>
                 <h1>Sign In</h1>
-                <input ref={emailRef} type="email" placeholder="Email"/>
+                <input ref={emailRef} value={email} type="email" placeholder="Email"/>
                 <input ref={passwordRef} type="password" placeholder="password"/>
                 <button onClick={signIn} type="submit">Sign In</button>
                 

@@ -38,9 +38,15 @@
   margin-right: 20px;
   text-decoration: none;
   font-size: 14px;
+  transition: all 0.3s ease;
+}
+.navLinks > a:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 .active-link {
   font-weight: 700;
+  pointer-events: none;
 }
 .navIconContainer {
   width: 150px;
@@ -51,6 +57,10 @@
 .navIconContainer > .MuiSvgIcon-root {
   color: #fff !important;
 }
+.navIconContainer > .MuiSvgIcon-root:hover {
+  cursor: pointer;
+}
 .navIconContainer > p {
   color: #fff;
+  cursor: pointer;
 }

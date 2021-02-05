@@ -5,6 +5,7 @@ import SignUpScreen from './SignUpScreen';
 const LoginScreen = () => {
 
     const [signIn, setSignIn] = useState(false);
+    const [email, setEmail] = useState("");
 
     return (
         <div className="loginScreen">
@@ -16,19 +17,19 @@ const LoginScreen = () => {
             </div>
             <div className="loginScreenBody">
                 {signIn ? (
-                    <SignUpScreen />
+                    <SignUpScreen email={email} />
                 ) : (
                     <>
-                    <h1>Undfjdshfdshfihdgibdiofghidufhbisdubgfuisfdhguifdbghuih </h1>
-                    <h2>sddksfbd dsfkljhdnf dhfkjsdfhn</h2>
-                    <h3>dfkhsdfhdsiohidhfnn idfniodsfi</h3>
-                    <div className="loginScreenInput">
-                        <form>
-                            <input type="email" placeholder="Email Address"/>
-                            <button onClick={() => setSignIn(true)} className="loginScreenGetStarted">Get Started</button>
-                        </form>
-                    </div>
-                </>
+                        <h1>Unlimited number of movies, series and more.</h1>
+                        <h2>Watch it anywhere. Unsubscribe at any time</h2>
+                        <div className="loginScreenInput">
+                            <form>
+                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address"/>
+                                <button onClick={() => setSignIn(true)} className="loginScreenGetStarted">Get Started</button>
+                            </form>
+                        </div>
+                        <h3>Ready to watch? Enter your email address to create or access your account</h3>
+                    </>
                 )}
             </div>
         </div>

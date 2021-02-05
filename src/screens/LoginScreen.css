@@ -23,6 +23,7 @@
   cursor: pointer;
   border: none;
   outline: none;
+  transition: all 0.3s ease;
 }
 .loginScreenGradient {
   width: 100%;
@@ -54,9 +55,14 @@
   margin-bottom: 20px;
 }
 .loginScreenBody > h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 30px;
-  font-size: 400;
+  opacity: 0.8;
+}
+.loginScreenBody > h3 {
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: 10px;
 }
 .loginScreenInput > form > input {
   padding: 10px;
@@ -75,4 +81,9 @@
   font-weight: 600;
   cursor: pointer;
   height: 42px;
+  transition: all 0.5s ease;
+}
+.loginScreenGetStarted:hover,
+.loginScreenButton:hover {
+  background-color: #bd2121;
 }

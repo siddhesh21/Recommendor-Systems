@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
-import { auth } from '../firebase';
+import db, { auth } from '../firebase';
 import Nav from '../Nav';
 import "./ProfileScreen.css"
 import EditIcon from '@material-ui/icons/Edit';
@@ -16,18 +16,23 @@ const ProfileScreen = () => {
         document.querySelector(".profileImageForm").classList.toggle("hiddenProfileUrlForm");
     }
 
+    const enterUserProfilePic = () => {
+        
+    }
+
+
     return (
         <div className="profileScreen">
             <Nav />
             <div className="profileScreenBody">
                 <h1>Edit profile</h1>
-                <form className="profileImageForm hiddenProfileUrlForm">
-                    <input onChange={(e) => setProfileUrl(e.target.value)} className="profileImageUrlInput" type="text" placeholder="Profile Image Url"/>
+                <form onSubmit={() => this.enterUserProfilePic} className="profileImageForm hiddenProfileUrlForm">
+                    <input onChange={(e) => setProfileUrl(e.target.value)} value={profileUrl} className="profileImageUrlInput" type="text" placeholder="Profile Image Url"/>
                     <button type="submit" onClick={toggleProfileForm}>Enter</button>
                 </form>
                 <div className="profileScreenInfo">
                     <div className="profileImageContainer">
-                        <img src={`${!profileUrl ? "https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" : profileUrl}`} alt="asd"/>
+                        <img src={`${!profileUrl ? "https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" : profileUrl}`} alt="error"/>
                         <div onClick={toggleProfileForm} className="imageOverlay">
                             <EditIcon />
                         </div>
