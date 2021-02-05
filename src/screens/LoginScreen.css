@@ -24,6 +24,7 @@
   border: none;
   outline: none;
   transition: all 0.3s ease;
+  border-radius: 5px;
 }
 .loginScreenGradient {
   width: 100%;
