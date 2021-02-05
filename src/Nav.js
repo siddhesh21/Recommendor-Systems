@@ -48,7 +48,7 @@ const Nav = ({profileUrl}) => {
                     <CardGiftcardIcon />
                     <NotificationsIcon />
                 </div>
-                <img onClick={() => history.push("/profile")} className="navAvatar" src={`${profileUrl === "" ? "https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" : profileUrl}`} alt=""/>
+                <img onClick={() => history.push("/profile")} className="navAvatar" src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" alt=""/>
             </div>
         </div>
     )

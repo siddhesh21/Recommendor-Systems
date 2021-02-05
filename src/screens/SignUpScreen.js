@@ -35,9 +35,11 @@ const SignUpScreen = ({email}) => {
                 <input ref={emailRef} value={email === "" ? newEmail : email} onChange={(e) => setNewEmail(e.target.value)} type="email" placeholder="Email"/>
                 <input ref={passwordRef} type="password" placeholder="password"/>
                 <button onClick={signIn} type="submit">Sign In</button>
-                
             </form>
             <h4><span className="signUpGray">New to Netflix? </span><span onClick={register} className="signUpLink">Sign up now.</span></h4>
+            <div className="moreSignUpScreen">
+                
+            </div>
         </div>
     )
 }

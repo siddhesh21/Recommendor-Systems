@@ -43,3 +43,8 @@
   cursor: pointer;
   text-decoration: underline;
 }
+.moreSignUpScreen {
+  width: 100%;
+  background-color: #111;
+  height: 200vh;
+}
