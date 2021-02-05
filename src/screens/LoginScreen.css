@@ -87,3 +87,23 @@
 .loginScreenButton:hover {
   background-color: #bd2121;
 }
+@media (max-width: 782px) {
+  .loginScreenBody > h1 {
+    font-size: 2rem;
+  }
+  .loginScreenBody > h2 {
+    font-size: 1.1rem;
+  }
+  .loginScreenInput > form > input {
+    width: 50%;
+  }
+}
+@media (max-width: 453px) {
+  .loginScreenInput > form > input {
+    width: 50%;
+  }
+  .loginScreenGetStarted {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+}

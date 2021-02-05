@@ -37,6 +37,30 @@ const ProfileScreen = () => {
                         <h2>{user.email}</h2>
                         <div className="profileScreenPlans">
                             <h3>Plans (Current Plan: premium)</h3>
+                            <h4>Renewal date: 04/03/2021</h4>
+                            <div className="planContainer">
+                                <div className="planPackage">
+                                    <div className="standartInfo">
+                                        <p>Netflix Standart</p>
+                                        <small>1080p</small>                                        
+                                    </div>
+                                    <button>Subscribe</button>
+                                </div>
+                                <div className="planPackage">
+                                    <div className="standartInfo">
+                                        <p>Netflix Basic</p>
+                                        <small>480p</small>                                        
+                                    </div>
+                                    <button>Subscribe</button>
+                                </div>
+                                <div className="planPackage">
+                                    <div className="standartInfo">
+                                        <p>Netflix Premium</p>
+                                        <small>4K+HDR</small>                                        
+                                    </div>
+                                    <button className="currentPackage">Current Package</button>
+                                </div>
+                            </div>
                             <button onClick={() => auth.signOut()} className="signoutButtonProfileScreen">Sign Out</button>
                         </div>
                     </div>
