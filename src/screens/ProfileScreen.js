@@ -16,11 +16,6 @@ const ProfileScreen = () => {
         document.querySelector(".profileImageForm").classList.toggle("hiddenProfileUrlForm");
     }
 
-    const enterUserProfilePic = () => {
-        
-    }
-
-
     return (
         <div className="profileScreen">
             <Nav />
@@ -36,6 +31,7 @@ const ProfileScreen = () => {
                         <div onClick={toggleProfileForm} className="imageOverlay">
                             <EditIcon />
                         </div>
+                        
                     </div>
                     <div className="profileScreenDetails">
                         <h2>{user.email}</h2>
