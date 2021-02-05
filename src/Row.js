@@ -3,6 +3,11 @@ import React, { useEffect, useState } from 'react';
 import "./Row.css"
 import YouTube from 'react-youtube';
 import movieTrailer from "movie-trailer";
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
+import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownOutlined';
+import ArrowDropDownCircleOutlinedIcon from '@material-ui/icons/ArrowDropDownCircleOutlined';
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
