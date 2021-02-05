@@ -14,11 +14,12 @@ const ProfileScreen = () => {
     const toggleProfileForm = (e) => {
         e.preventDefault();
         document.querySelector(".profileImageForm").classList.toggle("hiddenProfileUrlForm");
+        setProfileUrl(profileUrl);
     }
 
     return (
         <div className="profileScreen">
-            <Nav />
+            <Nav profileUrl={profileUrl} />
             <div className="profileScreenBody">
                 <h1>Edit profile</h1>
                 <form onSubmit={() => this.enterUserProfilePic} className="profileImageForm hiddenProfileUrlForm">

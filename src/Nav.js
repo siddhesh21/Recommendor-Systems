@@ -6,7 +6,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import "./Nav.css";
 
-const Nav = () => {
+const Nav = ({profileUrl}) => {
 
     const [show, handleShow] = useState(false);
     const history = useHistory();
@@ -48,7 +48,7 @@ const Nav = () => {
                     <CardGiftcardIcon />
                     <NotificationsIcon />
                 </div>
-                <img onClick={() => history.push("/profile")} className="navAvatar" src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" alt=""/>
+                <img onClick={() => history.push("/profile")} className="navAvatar" src={`${profileUrl === "" ? "https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" : profileUrl}`} alt=""/>
             </div>
         </div>
     )

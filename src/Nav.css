@@ -23,9 +23,10 @@
 }
 .navAvatar {
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   margin-right: 20px;
+  object-fit: contain;
 }
 .navBlack {
   background-color: #000;
