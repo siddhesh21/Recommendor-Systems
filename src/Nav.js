@@ -27,7 +27,7 @@ const Nav = ({profileUrl}) => {
     return (
         <div className={`nav ${ show && "navBlack"}`}>
             <div className="navContents">
-                <img onClick={() => history.push("/")} className="navLogo" src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="netflix logo"/>
+                <img onClick={() => history.push("/")} className="navLogo" src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="netflix logo"/>
                 <div className="navLinks">
                     <a href="#" className="active-link">Home</a>
                     <a href="#">TV Shows</a>
