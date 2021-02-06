@@ -1,6 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import db from '../firebase';
 import "./Planscreen.css";
@@ -12,7 +12,6 @@ const PlanScreen = () => {
     const [products, setProducts] = useState([]);
     const user = useSelector(selectUser);
     const [subscription, setSubscription] = useState(null);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         db.collection("customers").doc(user.uid).collection("subscriptions").get().then((querySnapshot) => {
