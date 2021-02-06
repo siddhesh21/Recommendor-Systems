@@ -25,8 +25,6 @@ const PlanScreen = () => {
         });
     }, [user.uid]);
 
-    console.log(subscription);
-
     const loadCheckout = async (priceId) => {
         const docRef = await db.collection("customers").doc(user.uid).collection("checkout_sessions").add({
             price: priceId,
@@ -61,8 +59,6 @@ const PlanScreen = () => {
             setProducts(products);
         })
     }, [])
-
-    console.log(products);
 
     return (
         <div className="planScreen">
