@@ -107,7 +107,3 @@
 .profileScreenPlans {
   color: #d8d7d7;
 }
-.planDisabled {
-  pointer-events: none;
-  background-color: #535353 !important;
-}

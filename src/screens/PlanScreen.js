@@ -20,10 +20,10 @@ const PlanScreen = () => {
                     role: subscription.data().role,
                     current_period_end: subscription.data().current_period_end.seconds,
                     current_period_start: subscription.data().current_period_start.seconds,
-                })
-            })
-        })
-    }, [])
+                });
+            });
+        });
+    }, [user.uid]);
 
     console.log(subscription);
 
@@ -75,7 +75,7 @@ const PlanScreen = () => {
                             <h5>{productData.name}</h5>
                             <h6>{productData.description}</h6>
                         </div>
-                        <button onClick={() => !isCurrentPackage && loadCheckout(productData?.prices?.priceId)}>{isCurrentPackage ? "Current Package" : "Subscribe"}</button>
+                        <button className="subscribeButton" onClick={() => !isCurrentPackage && loadCheckout(productData?.prices?.priceId)}>{isCurrentPackage ? "Current Package" : "Subscribe"}</button>
                     </div>
                 )
             })}

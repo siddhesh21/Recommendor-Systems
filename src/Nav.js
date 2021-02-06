@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -33,8 +33,10 @@ const Nav = ({profileUrl}) => {
                     <a href="#">TV Shows</a>
                     <a href="#">Movies</a>
                     <a href="#">New & Popular</a>
-                    <a href="#">My List</a>
                     <a href="#">Watch Again</a>
+                    <Link to="/reviews">
+                        <a href="#">Reviews</a>
+                    </Link>
                 </div>
                 <div className="responsiveLinks">
                     <div className="browseButton">
