@@ -13,20 +13,20 @@ const Reveiws = () => {
     const sendMessage = (e) => {
         e.preventDefault();
         db.collection("messages").add({
-            message: message,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            message: message,
         });
         setMessage("");
     }
 
     useEffect(() => {
-        db.collection("messages").orderBy("timestamp", "asc").onSnapshot((snapshot) => (
-          setMessages(snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          })))
+        db.collection("messages").orderBy("timestamp" , "desc").onSnapshot((snapshot) => (
+            setMessages(snapshot.docs.map((doc) => ({
+                id: doc.id,
+                data: doc.data(),
+            })))
         ));
-    }, [messages]);
+    }, []);
 
     return (
         <div className="reviewsPage">
