@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
-import db, { auth } from '../firebase';
+import { auth } from '../firebase';
 import Nav from '../Nav';
 import "./ProfileScreen.css"
 import EditIcon from '@material-ui/icons/Edit';
