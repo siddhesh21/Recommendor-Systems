@@ -6,8 +6,37 @@
 }
 .chatSidebar {
   flex: 0.2;
-  border-left: 5px solid gray;
 }
 .chatPage {
-  flex: 0.8;
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.leftSidebar {
+  flex: 0.2;
+}
+.chatFooter {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chatFooter > form > input {
+  min-width: 300px;
+  height: 40px;
+  padding: 5px 10px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  pointer-events: all;
+  margin-top: 70px;
+}
+.chatFooter > form > button {
+  display: none;
+}
+.chatContainer {
+  height: calc(100vh - 100px);
+  background-color: #fff;
 }
