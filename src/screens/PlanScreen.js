@@ -62,7 +62,7 @@ const PlanScreen = () => {
 
     return (
         <div className="planScreen">
-            {subscription && <p>Renewal date: {new Date(subscription?.current_period_end * 1000).toLocaleDateString}</p>}
+            {subscription && <p>Renewal date: {new Date(subscription?.current_period_end * 1000).toLocaleDateString()}</p>}
             {Object.entries(products).map(([productId, productData]) => {
                 const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role);
                 return(
@@ -73,7 +73,7 @@ const PlanScreen = () => {
                         </div>
                         <button className={`${isCurrentPackage && "planDisabled"}`} onClick={() => !isCurrentPackage && loadCheckout(productData?.prices?.priceId)}>{isCurrentPackage ? "Current Package" : "Subscribe"}</button>
                     </div>
-                )
+                )                
             })}
         </div>
     )
