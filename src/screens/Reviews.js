@@ -26,7 +26,7 @@ const Reveiws = () => {
             data: doc.data(),
           })))
         ));
-      }, [messages]);
+    }, [messages]);
 
     return (
         <div className="reviewsPage">
