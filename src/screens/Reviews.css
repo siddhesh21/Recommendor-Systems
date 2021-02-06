@@ -5,9 +5,9 @@
   display: flex;
 }
 .chatSidebar {
-  flex: 0.3;
+  flex: 0.2;
   border-left: 5px solid gray;
 }
 .chatPage {
-  flex: 0.7;
+  flex: 0.8;
 }

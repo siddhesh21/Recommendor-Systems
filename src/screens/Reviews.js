@@ -9,7 +9,10 @@ const Reveiws = () => {
 
                 </div>
                 <div className="chatFooter">
-                    <input type="text" placeholder="Witch movie would you reccomend?" />
+                    <form>
+                        <input type="text" placeholder="Witch movie would you reccomend?" />
+                        <button type="submit">Submit</button>
+                    </form>
                 </div>
             </div>
             <div className="chatSidebar">
