@@ -36,9 +36,7 @@ const Nav = ({profileUrl}) => {
                     <a href="#">Movies</a>
                     <a href="#">New & Popular</a>
                     <a href="#">Watch Again</a>
-                    <Link className="linkNav" to="/reviews">
-                        <a href="#">Reviews</a>
-                    </Link>
+                    <a href="#">Reviews</a>
                 </div>
                 <div className="responsiveLinks">
                     <div className="browseButton">

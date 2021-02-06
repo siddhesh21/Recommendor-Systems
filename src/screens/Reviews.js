@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "./Reviews.css";
-import Message from "../Message";
 import db from "../firebase";
 import firebase from "firebase";
+import Message from './Message';
 
 const Reveiws = () => {
 
@@ -12,11 +12,12 @@ const Reveiws = () => {
 
     const sendMessage = (e) => {
         e.preventDefault();
+        setMessage("");
         db.collection("messages").add({
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             message: message,
         });
-        setMessage("");
+        
     }
 
     useEffect(() => {
@@ -26,12 +27,11 @@ const Reveiws = () => {
                 data: doc.data(),
             })))
         ));
-    }, []);
+    }, [messages]);
 
     return (
         <div className="reviewsPage">
             <div className="leftSidebar">
-
             </div>
             <div className="chatPage">
                 <div className="chatFooter">
