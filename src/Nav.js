@@ -6,7 +6,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import "./Nav.css";
 
-const Nav = ({profileUrl}) => {
+const Nav = () => {
 
     const [show, handleShow] = useState(false);
     const history = useHistory();

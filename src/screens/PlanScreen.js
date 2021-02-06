@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import db from '../firebase';
+import Nav from '../Nav';
 import "./Planscreen.css";
 
 
@@ -62,6 +63,9 @@ const PlanScreen = () => {
 
     return (
         <div className="planScreen">
+            <div className={`${subscription ? "" : "noNav"}`}>
+                <Nav />
+            </div>
             {subscription && <p>Renewal date: {new Date(subscription?.current_period_end * 1000).toLocaleDateString()}</p>}
             {Object.entries(products).map(([productId, productData]) => {
                 const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role);

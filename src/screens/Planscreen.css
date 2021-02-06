@@ -21,3 +21,6 @@
   pointer-events: none;
   background-color: #535353 !important;
 }
+.noNav {
+  display: none;
+}

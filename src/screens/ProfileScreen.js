@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import { auth } from '../firebase';
-import Nav from '../Nav';
 import "./ProfileScreen.css"
 import EditIcon from '@material-ui/icons/Edit';
 import PlanScreen from './PlanScreen';
@@ -20,7 +19,6 @@ const ProfileScreen = () => {
 
     return (
         <div className="profileScreen">
-            <Nav profileUrl={profileUrl} />
             <div className="profileScreenBody">
                 <h1>Edit profile</h1>
                 <form onSubmit={() => this.enterUserProfilePic} className="profileImageForm hiddenProfileUrlForm">
@@ -38,7 +36,7 @@ const ProfileScreen = () => {
                     <div className="profileScreenDetails">
                         <h2>{user.email}</h2>
                         <div className="profileScreenPlans">
-                            <PlanScreen />
+                            <PlanScreen profileUrl={profileUrl} />
                             <button onClick={() => auth.signOut()} className="signoutButtonProfileScreen">Sign Out</button>
                         </div>
                     </div>
