@@ -13,8 +13,8 @@ const Reveiws = () => {
     const sendMessage = (e) => {
         e.preventDefault();
         db.collection("messages").add({
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             message: message,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
         setMessage("");
     }
@@ -26,7 +26,7 @@ const Reveiws = () => {
             data: doc.data(),
           })))
         ));
-      }, []);
+      }, [messages]);
 
     return (
         <div className="reviewsPage">
@@ -41,9 +41,9 @@ const Reveiws = () => {
                     </form>
                 </div>
                 <div className="chatContainer">
-                {messages.map(({id, data}) => (
-                    <Message key={id} id={id} content={data} />
-                ))}
+                    {messages.map(({id, data}) => (
+                        <Message key={id} id={id} content={data} />
+                    ))}
                 </div>
             </div>
             <div className="chatSidebar">
