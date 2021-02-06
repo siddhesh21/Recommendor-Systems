@@ -28,6 +28,10 @@
   margin-right: 20px;
   object-fit: contain;
 }
+.linkNav > a {
+  color: #fff;
+  text-decoration: none;
+}
 .navBlack {
   background-color: #000;
 }

@@ -34,7 +34,7 @@ const Nav = ({profileUrl}) => {
                     <a href="#">Movies</a>
                     <a href="#">New & Popular</a>
                     <a href="#">Watch Again</a>
-                    <Link to="/reviews">
+                    <Link className="linkNav" to="/reviews">
                         <a href="#">Reviews</a>
                     </Link>
                 </div>
