@@ -70,12 +70,12 @@ const PlanScreen = () => {
             {Object.entries(products).map(([productId, productData]) => {
                 const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role);
                 return(
-                    <div key={productId} className={`${isCurrentPackage && "planDisabled"} planScreenPlan`}>
+                    <div key={productId} className="planScreenPlan">
                         <div className="planScreenInfo">
                             <h5>{productData.name}</h5>
                             <h6>{productData.description}</h6>
                         </div>
-                        <button className="subscribeButton" onClick={() => !isCurrentPackage && loadCheckout(productData?.prices?.priceId)}>{isCurrentPackage ? "Current Package" : "Subscribe"}</button>
+                        <button className={`${isCurrentPackage && "planDisabled"}`} onClick={() => !isCurrentPackage && loadCheckout(productData?.prices?.priceId)}>{isCurrentPackage ? "Current Package" : "Subscribe"}</button>
                     </div>
                 )
             })}
