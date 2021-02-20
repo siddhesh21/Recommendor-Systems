@@ -1,18 +1,18 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA3ntjhoMFlBtkXLam2vu2wProaTvwi64I",
-    authDomain: "instagram-clone-fc2ce.firebaseapp.com",
-    projectId: "instagram-clone-fc2ce",
-    storageBucket: "instagram-clone-fc2ce.appspot.com",
-    messagingSenderId: "639165461153",
-    appId: "1:639165461153:web:9750aa95bd54c697fdf6e0",
-    measurementId: "G-8K0H85QJJ3"
+  apiKey: "AIzaSyBVRPiYpX6PwK7Ee5Q3IGsoj76Ze2-kuMI",
+  authDomain: "project-netflix-23ae7.firebaseapp.com",
+  projectId: "project-netflix-23ae7",
+  storageBucket: "project-netflix-23ae7.appspot.com",
+  messagingSenderId: "143007789327",
+  appId: "1:143007789327:web:5fd23d40678945b119ce7a",
+  measurementId: "G-W1EH778M8W",
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 
-export {auth};
+export { auth };
 export default db;

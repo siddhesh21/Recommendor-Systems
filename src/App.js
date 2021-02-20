@@ -1,28 +1,28 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.css';
-import { login, logout, selectUser } from './features/userSlice';
-import { auth } from './firebase';
-import Nav from './Nav';
-import HomeScreen from './screens/HomeScreen';
-import LoginScreen from './screens/LoginScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import Reviews from './screens/Reviews';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "./App.css";
+import { login, logout, selectUser } from "./features/userSlice";
+import { auth } from "./firebase";
+import Nav from "./Nav";
+import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
-
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-      if(userAuth){
-        dispatch(login({
-          uid: userAuth.uid,
-          email: userAuth.email,
-        }))
-      }else{
+      if (userAuth) {
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
+      } else {
         dispatch(logout());
       }
     });
@@ -36,20 +36,18 @@ function App() {
           <LoginScreen />
         ) : (
           <Switch>
-            <Route path="/profile" exact>
+            <Route exact path="/profile">
               <ProfileScreen />
             </Route>
-            <Route path="/reviews" exact>
+            <Route exact path="/reviews">
               <Nav />
-              <Reviews />
             </Route>
-            <Route path="/" exact>
+            <Route exact path="/">
               <HomeScreen />
             </Route>
           </Switch>
         )}
       </BrowserRouter>
-      
     </div>
   );
 }

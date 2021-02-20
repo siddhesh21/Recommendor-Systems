@@ -1,3 +1,34 @@
+.planScreen__plan {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  opacity: 0.8;
+}
+
+.planScreen__plan:hover {
+  opacity: 1;
+}
+
+.planScreen__plan > button {
+  padding: 7px 15px;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.planScreen__plan:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.planScreen__plan--disabled > button {
+  background-color: rgb(9, 255, 0) !important;
+  color: black;
+}
+
 .planScreenPlan {
   display: flex;
   justify-content: space-between;

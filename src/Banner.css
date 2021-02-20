@@ -1,60 +1,67 @@
 .banner {
-  height: 900px;
+  height: 448px;
   position: relative;
-  color: #fff;
+  color: white;
   object-fit: contain;
 }
-.banner-contents {
+
+.banner__contents {
   margin-left: 30px;
   padding-top: 140px;
-  height: 190px;
 }
-.bannerTitle {
+
+.banner__title {
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
 }
-.bannerDescription {
+
+.banner__description {
   width: 45rem;
+  font-size: 0.8rem;
   line-height: 1.3;
   padding-top: 1rem;
-  font-size: 1.2rem;
-  max-width: 360px;
   height: 80px;
+  max-width: 360px;
+  font-weight: 400;
 }
+
 .banner--fadeBottom {
-  height: 7.4rem;
+  height: 6rem;
   background-image: linear-gradient(
     180deg,
     transparent,
     rgba(37, 37, 37, 0.61),
     #111
   );
-  width: 100%;
-  margin-top: 580px;
 }
-.bannerButton {
+
+.banner__button {
   cursor: pointer;
-  color: #fff;
-  border: none;
+  color: white;
   outline: none;
+  border: none;
   font-weight: 700;
   border-radius: 0.2vw;
-  padding: 0.5rem 2rem;
   margin-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   background-color: rgba(51, 51, 51, 0.5);
-  height: 40px;
-  transition: all 0.5s ease;
 }
-.bannerButton:hover {
+
+.banner__button:hover {
   color: #000;
-  background-color: #fff;
+  background-color: #e6e6e6;
+  transition: all 0.3s;
 }
+
 @media (max-width: 530px) {
-  .bannerTitle {
+  .banner__title {
     font-size: 1.7rem;
   }
-  .bannerDescription {
+  .banner__description {
     font-size: 0.8rem;
   }
   .banner {
@@ -63,7 +70,7 @@
   .banner--fadeBottom {
     margin-top: 610px;
   }
-  .banner-contents {
+  .banner__contents {
     margin-top: 400px;
   }
 }

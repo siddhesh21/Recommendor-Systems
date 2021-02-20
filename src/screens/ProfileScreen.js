@@ -1,49 +1,42 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../features/userSlice';
-import { auth } from '../firebase';
-import "./ProfileScreen.css"
-import EditIcon from '@material-ui/icons/Edit';
-import PlanScreen from './PlanScreen';
+import React from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
+import { auth } from "../firebase";
+import "./ProfileScreen.css";
+// import EditIcon from "@material-ui/icons/Edit";
+import PlanScreen from "./PlanScreen";
+import Nav from "../Nav";
 
-const ProfileScreen = () => {
-
-    const user = useSelector(selectUser);
-    const [profileUrl, setProfileUrl] = useState("");
-
-    const toggleProfileForm = (e) => {
-        e.preventDefault();
-        document.querySelector(".profileImageForm").classList.toggle("hiddenProfileUrlForm");
-        setProfileUrl(profileUrl);
-    }
-
-    return (
-        <div className="profileScreen">
-            <div className="profileScreenBody">
-                <h1>Edit profile</h1>
-                <form onSubmit={() => this.enterUserProfilePic} className="profileImageForm hiddenProfileUrlForm">
-                    <input onChange={(e) => setProfileUrl(e.target.value)} value={profileUrl} className="profileImageUrlInput" type="text" placeholder="Profile Image Url"/>
-                    <button type="submit" onClick={toggleProfileForm}>Enter</button>
-                </form>
-                <div className="profileScreenInfo">
-                    <div className="profileImageContainer">
-                        <img src={`${!profileUrl ? "https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" : profileUrl}`} alt="error"/>
-                        <div onClick={toggleProfileForm} className="imageOverlay">
-                            <EditIcon />
-                        </div>
-                        
-                    </div>
-                    <div className="profileScreenDetails">
-                        <h2>{user.email}</h2>
-                        <div className="profileScreenPlans">
-                            <PlanScreen profileUrl={profileUrl} />
-                            <button onClick={() => auth.signOut()} className="signoutButtonProfileScreen">Sign Out</button>
-                        </div>
-                    </div>
-                </div>
+function ProfileScreen() {
+  const user = useSelector(selectUser);
+  return (
+    <div className="profileScreen">
+      <Nav />
+      <div className="profileScreen__body">
+        <h1>Edit Profile</h1>
+        <div className="profileScreen__info">
+          <img
+            className="profileScreen__avatar"
+            src="https://i.pinimg.com/originals/30/db/47/30db479e1558c3ed46b4ed23b3cd98ae.png"
+            alt=""
+          />
+          <div className="profileScreen__details">
+            <h2>{user.email}</h2>
+            <div className="profileScreen__plans">
+              <h3>Plans </h3>
+              <PlanScreen />
+              <button
+                onClick={() => auth.signOut()}
+                className="profileScreen__signOut"
+              >
+                Sign Out
+              </button>
             </div>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-export default ProfileScreen
+export default ProfileScreen;
