@@ -7,6 +7,7 @@ import { auth } from "./firebase";
 import Nav from "./Nav";
 import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
+import Personalize from "./screens/Personalize";
 import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
           <Switch>
             <Route exact path="/profile">
               <ProfileScreen />
+            </Route>
+            <Route exact path="/personalize">
+              <Personalize />
             </Route>
             <Route exact path="/reviews">
               <Nav />
