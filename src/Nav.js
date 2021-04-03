@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Nav.css";
-import PersonalVideoIcon from '@material-ui/icons/PersonalVideo';
+import PersonalVideoIcon from "@material-ui/icons/PersonalVideo";
 import { IconButton } from "@material-ui/core";
 
 const Nav = () => {
@@ -38,15 +38,12 @@ const Nav = () => {
         </div>
 
         <IconButton>
-        <PersonalVideoIcon onClick={() => history.push("/personalize")}
-        className="nav__personalizeButton"/>
+          <PersonalVideoIcon
+            style={{ color: "red", fontSize: "4rem" }}
+            onClick={() => history.push("/personalize")}
+            className="nav__personalizeButton"
+          />
         </IconButton>
-        {/**<img
-          onClick={() => history.push("/personalize")}
-          className="nav__personalize"
-          src="https://i.pinimg.com/originals/30/db/47/30db479e1558c3ed46b4ed23b3cd98ae.png"
-          alt=""
-        /> */}
         <img
           onClick={() => history.push("/profile")}
           className="nav__avatar"

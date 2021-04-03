@@ -52,29 +52,13 @@
 .nav__personalizeButton {
     position: fixed;
     right: 80px;
-    font-size: 40px;
-    color: black;
-    transition: transform 450ms;
 }
 
-.nav__personalizeButton:hover {
+
+/* .nav__personalizeButton:hover {
     transform: scale(1.77);
     opacity: 1;
-}
-
-.nav__personalize {
-    cursor: pointer;
-    position: fixed;
-    right: 80px;
-    width: 30px;
-    transition: transform 450ms;
-    border-radius: 2px;
-}
-
-.nav__personalize:hover {
-    transform: scale(1.77);
-    opacity: 1;
-}
+} */
 
 
 /* 
