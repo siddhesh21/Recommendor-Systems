@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import "./Questions.css";
 import {
   Button,
   Checkbox,
@@ -12,22 +12,17 @@ import {
   Radio,
   RadioGroup,
 } from "@material-ui/core";
-// import { useCollection } from "react-firebase-hooks/firestore";
-// import db from "../firebase";
+import { selectUser } from "../features/userSlice";
+import { useSelector } from "react-redux";
+import db from "../firebase";
 
 function Questions() {
-  //   const [users] = useCollection(db.collection("users"));
-  //   const [usersSelection] = useCollection(
-  //     db.collection("user").collection("selection")
-  //   );
+  const user = useSelector(selectUser);
+  console.log("This is a USER >>>", user);
 
   const [value, setValue] = useState("Male");
   const handleChangeGender = (e) => {
     setValue(e.target.value);
-  };
-
-  const submitForm = (e) => {
-    e.preventDefault();
   };
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,22 +33,40 @@ function Questions() {
     },
   }));
   const classes = useStyles();
-  const [state, setState] = useState({
-    ScienceFiction: true,
+
+  const [userChecked, setUserChecked] = useState({
     Action: false,
     Horror: false,
-    Adventure: false,
-    Animated: false,
+    Comedy: false,
+    Romance: false,
   });
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    setUserChecked({
+      ...userChecked,
+      [event.target.name]: event.target.checked,
+    });
   };
-  const { ScienceFiction, Action, Horror, Adventure, Animated } = state;
-  const error =
-    [ScienceFiction, Action, Horror, Adventure, Animated].filter((v) => v)
-      .length !== 3;
+  const { Action, Horror, Comedy, Romance } = userChecked;
+  const error = [Action, Horror, Comedy, Romance].filter((v) => v).length !== 3;
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    db.collection("usersResponses")
+      .doc(user.uid)
+      .collection("userResponse")
+      .add({
+        question1: value,
+        question2: userChecked,
+      });
+    console.log("SUBMITTED RESPONSES");
+    window.alert("RESPONSE SUBMITTED, THANK YOU");
+  };
 
   console.log(value);
+  console.log(userChecked);
+
+  useEffect(() => {}, [user.uid]);
+
   return (
     <div className="personalize__Container">
       <form>
@@ -100,17 +113,7 @@ function Questions() {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={ScienceFiction}
-                  onChange={handleChange}
-                  name="ScienceFiction"
-                />
-              }
-              label="ScienceFiction"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={Action}
+                  userChecked={Action}
                   onChange={handleChange}
                   name="Action"
                 />
@@ -120,17 +123,17 @@ function Questions() {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={Animated}
+                  userChecked={Comedy}
                   onChange={handleChange}
-                  name="Animated"
+                  name="Comedy"
                 />
               }
-              label="Animated"
+              label="Comedy"
             />
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={Horror}
+                  userChecked={Horror}
                   onChange={handleChange}
                   name="Horror"
                 />
@@ -140,25 +143,27 @@ function Questions() {
             <FormControlLabel
               control={
                 <Checkbox
-                  checked={Adventure}
+                  userChecked={Romance}
                   onChange={handleChange}
-                  name="Adventure"
+                  name="Romance"
                 />
               }
-              label="Adventure"
+              label="Romance"
             />
           </FormGroup>
           <FormHelperText>Please choose top 3</FormHelperText>
         </FormControl>
       </form>
-      <Button
-        style={{ color: "white", fontSize: "20px" }}
-        onClick={submitForm}
-        type="submit"
-        variant="outlined"
-      >
-        SUBMIT
-      </Button>
+      <form>
+        <Button
+          style={{ color: "white", fontSize: "20px" }}
+          onClick={submitForm}
+          type="submit"
+          variant="outlined"
+        >
+          SUBMIT
+        </Button>
+      </form>
     </div>
   );
 }

@@ -1,0 +1,7 @@
+.personalize__Container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.personalize__Container>Button {}
