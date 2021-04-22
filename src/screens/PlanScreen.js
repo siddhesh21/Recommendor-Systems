@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../features/userSlice";
 import db from "../firebase";
 // import Nav from "../Nav";
-import "./PlanScreen.css";
+// import "./PlanScreen.css";
 
 const PlanScreen = () => {
   const [products, setProducts] = useState([]);

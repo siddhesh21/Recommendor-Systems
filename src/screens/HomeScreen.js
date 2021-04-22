@@ -4,8 +4,18 @@ import "./HomeScreen.css";
 import Nav from "../Nav";
 import requests from "../Requests";
 import Row from "../Row";
-
+import { selectUser } from "../features/userSlice";
+import { useSelector } from "react-redux";
+import { localInstance } from "../axios";
 function HomeScreen() {
+  const user = useSelector(selectUser);
+  console.log(localInstance);
+  // localInstance
+  //   .get(`getRecommendations?username=${user.email}&n=20`)
+  //   .then((vales) => {
+  //     console.log(vales);
+  //   });
+
   return (
     <div className="homeScreen">
       <Nav />
@@ -16,6 +26,12 @@ function HomeScreen() {
         isLargeRow
       />
       <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
+
+      <Row
+        title="Recommended"
+        fetchUrl={`getRecommendations?username=${user.email}&n=20`}
+        isFromRecommendor={true}
+      />
       <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
       <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
       <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />

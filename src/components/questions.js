@@ -18,12 +18,12 @@ import db from "../firebase";
 
 function Questions() {
   const user = useSelector(selectUser);
-  console.log("This is a USER >>>", user);
+  // console.log("This is a USER >>>", user);
 
-  const [value, setValue] = useState("Male");
-  const handleChangeGender = (e) => {
-    setValue(e.target.value);
-  };
+  // const [value, setValue] = useState("Male");
+  // const handleChangeGender = (e) => {
+  //   setValue(e.target.value);
+  // };
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
@@ -33,12 +33,28 @@ function Questions() {
     },
   }));
   const classes = useStyles();
+  // 11,tt0076759,Star Wars
+
+  // 26441,tt0112499,The Big Green
+
+  // 862,tt0114709,Toy Story
+
+  // 51352,tt0112373,Anne Frank Remembered
+
+  // 680,tt0110912,Pulp Fiction
+
+  // 858,tt0108160,Sleepless in Seattle
+
+  // 38223,tt0116493,Harriet the Spy
 
   const [userChecked, setUserChecked] = useState({
-    Action: false,
-    Horror: false,
-    Comedy: false,
-    Romance: false,
+    Star_Wars: false,
+    The_Big_Green: false,
+    Toy_Story: false,
+    Anne_Frank_Remembered: false,
+    Pulp_Fiction: false,
+    Sleepless_in_Seattle: false,
+    Harriet_the_Spy: false,
   });
   const handleChange = (event) => {
     setUserChecked({
@@ -46,8 +62,27 @@ function Questions() {
       [event.target.name]: event.target.checked,
     });
   };
-  const { Action, Horror, Comedy, Romance } = userChecked;
-  const error = [Action, Horror, Comedy, Romance].filter((v) => v).length !== 3;
+
+  const {
+    Star_Wars,
+    The_Big_Green,
+    Toy_Story,
+    Anne_Frank_Remembered,
+    Pulp_Fiction,
+    Sleepless_in_Seattle,
+    Harriet_the_Spy,
+  } = userChecked;
+  const moviesIdList = [11, 26441, 862, 51352, 680, 858, 38223];
+  const error =
+    [
+      Star_Wars,
+      The_Big_Green,
+      Toy_Story,
+      Anne_Frank_Remembered,
+      Pulp_Fiction,
+      Sleepless_in_Seattle,
+      Harriet_the_Spy,
+    ].filter((v) => v).length < 3;
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -55,49 +90,55 @@ function Questions() {
       .doc(user.uid)
       .collection("userResponse")
       .add({
-        question1: value,
+        recommendationCompleated: true,
+        // question1: value,
         question2: userChecked,
       });
+    console.log(user.uid);
+    // do your change here
+    let temp = [
+      Star_Wars,
+      The_Big_Green,
+      Toy_Story,
+      Anne_Frank_Remembered,
+      Pulp_Fiction,
+      Sleepless_in_Seattle,
+      Harriet_the_Spy,
+    ];
+    for (let i = 0; i < temp.length; i++) {
+      if (temp[i]) {
+        // moviesIdList
+        fetch(
+          `http://188.166.107.243:8000/addPreference?username=${user.email}&movie=${moviesIdList[i]}`,
+          {
+            method: "GET",
+          }
+        )
+          .then((response) => {
+            console.log(response);
+          })
+          .then((response) => {
+            console.log(response);
+          });
+      }
+    }
+
     console.log("SUBMITTED RESPONSES");
     window.alert("RESPONSE SUBMITTED, THANK YOU");
   };
 
-  console.log(value);
-  console.log(userChecked);
+  // console.log(value);
+  // console.log(userChecked);
 
   useEffect(() => {}, [user.uid]);
 
   return (
     <div className="personalize__Container">
       <form>
-        <h2 style={{ marginBottom: 15 }}>Are you...</h2>
+        <h2 style={{ marginBottom: 15 }}>Recommendations saver</h2>
 
-        <FormControl component="fieldset">
-          <RadioGroup
-            aria-label="gender"
-            name="gender1"
-            value={value}
-            onChange={handleChangeGender}
-          >
-            <FormControlLabel
-              value="female"
-              control={<Radio style={{ color: "white" }} />}
-              label="Female"
-            />
-            <FormControlLabel
-              value="male"
-              control={<Radio style={{ color: "white" }} />}
-              label="Male"
-            />
-            <FormControlLabel
-              value="other"
-              control={<Radio style={{ color: "white" }} />}
-              label="Other"
-            />
-          </RadioGroup>
-        </FormControl>
         <h2 style={{ padding: "5px", marginTop: 15 }}>
-          Which is your favorite genre?
+          Which is the following movies do you like?
         </h2>
 
         <FormControl
@@ -113,42 +154,72 @@ function Questions() {
             <FormControlLabel
               control={
                 <Checkbox
-                  userChecked={Action}
+                  userChecked={Star_Wars}
                   onChange={handleChange}
-                  name="Action"
+                  name="Star_Wars"
                 />
               }
-              label="Action"
+              label="Star Wars"
             />
             <FormControlLabel
               control={
                 <Checkbox
-                  userChecked={Comedy}
+                  userChecked={The_Big_Green}
                   onChange={handleChange}
-                  name="Comedy"
+                  name="The_Big_Green"
                 />
               }
-              label="Comedy"
+              label="The Big Green"
             />
             <FormControlLabel
               control={
                 <Checkbox
-                  userChecked={Horror}
+                  userChecked={Toy_Story}
                   onChange={handleChange}
-                  name="Horror"
+                  name="Toy_Story"
                 />
               }
-              label="Horror"
+              label="Toy Story"
             />
             <FormControlLabel
               control={
                 <Checkbox
-                  userChecked={Romance}
+                  userChecked={Anne_Frank_Remembered}
                   onChange={handleChange}
-                  name="Romance"
+                  name="Anne_Frank_Remembered"
                 />
               }
-              label="Romance"
+              label="Anne Frank Remembered"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  userChecked={Pulp_Fiction}
+                  onChange={handleChange}
+                  name="Pulp_Fiction"
+                />
+              }
+              label="Pulp Fiction"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  userChecked={Sleepless_in_Seattle}
+                  onChange={handleChange}
+                  name="Sleepless_in_Seattle"
+                />
+              }
+              label="Sleepless in Seattle"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  userChecked={Harriet_the_Spy}
+                  onChange={handleChange}
+                  name="Harriet_the_Spy"
+                />
+              }
+              label="Harriet the Spy"
             />
           </FormGroup>
           <FormHelperText>Please choose top 3</FormHelperText>
